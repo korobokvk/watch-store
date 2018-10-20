@@ -1,0 +1,38 @@
+<div class="item-wrapper">
+
+  <div class="item" *ngFor="let item of pagedItems">
+    <div class="item-image">
+      <img src="../../assets/watches/{{item.image}}" alt="">
+    </div>
+    <a href="" class="item-link">{{item.name}}</a>
+    <div class="item-description">
+      <span>{{item.os}}, {{item.ramSize}} RAM, {{item.romSize}} ROM</span>
+    </div>
+    <div class="item-footer">
+      <div class="item-price tag">${{item.price}}</div>
+      <div class="item-cart">
+        <app-cart></app-cart>
+      </div>
+    </div>
+  </div>
+
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+  </ul>
+
+
+</div>

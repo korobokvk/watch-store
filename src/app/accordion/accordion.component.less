@@ -1,0 +1,50 @@
+.accordion {
+  padding-top: 7px;
+  color: darken(#bee5eb, 50%);
+  cursor: pointer;
+  height: 25px;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  margin-bottom: 20px;
+}
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+.bordered {
+  border-bottom: solid 1px black;
+}
+.panel {
+  margin-left: 15px;
+  margin-bottom: 20px;
+
+  padding-top: 7px;
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.accordion-icon {
+  float: right;
+}
+.accordion-name {
+  margin-left: 15px;
+  float: left;
+}
+
+i {
+  border: solid darken(#bee5eb, 50%);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-right: 15px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

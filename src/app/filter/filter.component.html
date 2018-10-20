@@ -1,0 +1,47 @@
+<app-accordion [name]="'Price'" [state]="state">
+  <input class="price" type="number" placeholder="From"> - <input class="price" type="number" placeholder="To">$
+</app-accordion>
+<app-accordion [name]="'Manufacturer'" [state]="state">
+  <form action="" *ngFor="let filter of filtersData">
+    <label>
+      <input type="checkbox">
+      {{filter.manufacturer}}
+    </label>
+  </form>
+</app-accordion>
+
+<app-accordion [name]="'OS'" [state]="state">
+  <form action="" *ngFor="let filter of filtersData">
+    <label>
+      <input type="checkbox">
+      {{filter.os}}
+    </label>
+  </form>
+</app-accordion>
+
+<app-accordion [name]="'Screen Type'">
+  <form action="" *ngFor="let filter of filtersData">
+    <label>
+      <input type="checkbox">
+      {{filter.screenType}}
+    </label>
+  </form>
+</app-accordion>
+
+<app-accordion [name]="'RAM Size'">
+  <form action="" *ngFor="let filter of filtersData">
+    <label>
+      <input type="checkbox">
+      {{filter.ramSize}}
+    </label>
+  </form>
+</app-accordion>
+
+<app-accordion [name]="'Internal Memory'">
+  <form action="" *ngFor="let filter of filtersData">
+    <label>
+      <input type="checkbox">
+      {{filter.romSize}}
+    </label>
+  </form>
+</app-accordion>

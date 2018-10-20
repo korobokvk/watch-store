@@ -1,0 +1,7 @@
+<div [ngClass]="{bordered: !contentState}" class="accordion" (click)="toggleContent()">
+  <span class="accordion-name">{{name}}</span>
+  <span class="accordion-icon"><i [ngClass]="{down: contentState, left: !contentState}"></i></span>
+</div>
+<div  [style.display]="contentState ? 'block':'none'" class="panel">
+  <ng-content></ng-content>
+</div>
