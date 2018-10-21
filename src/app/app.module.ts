@@ -18,6 +18,7 @@ import { MainComponent } from './main/main.component';
 import { DataService } from "./data.service";
 import { PaginationService } from "./pagination.service";
 import { SortingPipe } from './sorting.pipe'
+import {FilterService} from "./filter.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { SortingPipe } from './sorting.pipe'
     HttpClientModule,
     FormsModule
   ],
-  providers: [DataService, PaginationService],
+  providers: [DataService, PaginationService, FilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

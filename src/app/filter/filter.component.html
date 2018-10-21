@@ -1,14 +1,11 @@
 <app-accordion [name]="'Price'" [state]="state">
   <input class="price" type="number" placeholder="From"> - <input class="price" type="number" placeholder="To">$
 </app-accordion>
-
 <ng-container class="accordion" *ngFor="let item of filterData">
   <app-accordion [name]="item.label" [state]="item.label === 'Manufacturer' || item.label === 'OS'">
-    <form action="">
-      <label *ngFor="let value of item.value">
-        <input type="checkbox">
+      <label *ngFor="let value of item.value; let i = index">
+        <input [value]="value" name="{{value}}" #model (click)="filtersValue(value, item.label, model)" type="checkbox">
         {{value}}
       </label>
-    </form>
   </app-accordion>
 </ng-container>
