@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import { DataService } from "../data.service";
 import { PaginationService } from "../pagination.service"
 
@@ -8,28 +8,30 @@ import { PaginationService } from "../pagination.service"
   styleUrls: ['./watch-item.component.less']
 })
 export class WatchItemComponent implements OnInit, OnDestroy {
+  public selectOption: string = 'popular';
   constructor(private _dataService: DataService, private paginationService: PaginationService) {
   }
 
   ngOnInit() {
     this.getItemsData();
   }
+
   ngOnDestroy() {
   }
 
   private getItemsData() {
-    this._dataService.getData().subscribe((data) => {
+    this._dataService.getData().subscribe((data: Array<object>) => {
       this.allItems = [...data];
       this.setPage(1);
     })
   }
-  private allItems: any[];
+  public allItems: any[];
   pager: any = {};
   pagedItems: any[];
 
 
 
-  setPage(page: number) {
+  private setPage(page: number) {
     this.pager = this.paginationService.getPager(this.allItems.length, page);
     this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }

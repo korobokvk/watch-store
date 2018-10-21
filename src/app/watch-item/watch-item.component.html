@@ -1,10 +1,22 @@
 <div class="item-wrapper">
-
-  <div class="item" *ngFor="let item of pagedItems">
+  <div class="sorting-select">
+  <span>Sorting:</span> <app-sorting [(select)]="selectOption"></app-sorting>
+  </div>
+  <div class="item" *ngFor="let item of pagedItems | sorting:allItems:selectOption">
     <div class="item-image">
       <img src="../../assets/watches/{{item.image}}" alt="">
     </div>
-    <a href="" class="item-link">{{item.name}}</a>
+    <a routerLink="item"
+       [queryParams] ="{
+       'name': item.name,
+       'os': item.os,
+       'price': item.price,
+       'image': item.image,
+       'ramSize': item.ramSize,
+       'romSize': item.romSize,
+       'screenSize': item.screenSize,
+       'screenType': item.screenType,
+       'description':item.description}"  class="item-link">{{item.name}}</a>
     <div class="item-description">
       <span>{{item.os}}, {{item.ramSize}} RAM, {{item.romSize}} ROM</span>
     </div>
@@ -16,7 +28,7 @@
     </div>
   </div>
 
-  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+  <ul *ngIf="pager.pages && pager.pages.length && selectOption === 'popular'" class="pagination">
     <li [ngClass]="{disabled:pager.currentPage === 1}">
       <a (click)="setPage(1)">First</a>
     </li>

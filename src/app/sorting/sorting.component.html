@@ -1,3 +1,10 @@
-<p>
-  sorting works!
-</p>
+  <div class="select">
+    <select
+      [ngModel]="select"
+      [ngModelOptions]="{standalone: true}"
+      (ngModelChange)="onSelectChange($event)"
+      id="select">
+      <option *ngFor="let opt of options" [value]="opt.id">{{opt.name}}</option>
+    </select>
+  </div>
+

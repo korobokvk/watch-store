@@ -1,3 +1,21 @@
-<p>
-  watch-info works!
-</p>
+<div class="item">
+  <div class="item-image">
+    <img src="../../assets/watches/{{itemParams.image}}" alt="">
+  </div>
+  <div class="item-info">
+    <a routerLink="/" class="back-to-main">Back to Catalog</a>
+    <div class="item-name">{{itemParams.watchName}}</div>
+    <div class="item-params">
+      <span>OS: {{itemParams.os}}, Screen Size: {{itemParams.screenSize}}, Screen Type: {{itemParams.screenType}}, {{itemParams.ram}} RAM, {{itemParams.rom}} ROM</span>
+    </div>
+    <div class="item-description">{{itemParams.description}}</div>
+  </div>
+  <div class="item-footer">
+    <div class="item-price tag">${{itemParams.price}}</div>
+    <div class="item-cart">
+      <app-cart></app-cart>
+      <span>Add to Cart</span>
+    </div>
+  </div>
+
+</div>
